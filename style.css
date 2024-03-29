@@ -1,0 +1,580 @@
+/* Fonts */
+:root {
+  --default-font: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Raleway", sans-serif;
+  --nav-font: "Poppins", sans-serif;
+}
+
+/* Global Colors */
+:root {
+  --background-color: #ffffff;
+  --background-color-rgb: 255, 255, 255;
+  --default-color: #444444;
+  --default-color-rgb: 68, 68, 68;
+  --heading-color: #37423b;
+  --heading-color-rgb: 55, 66, 59;
+  --accent-color: #206e95;
+  --accent-color-rgb: 36, 111, 215;
+  --contrast-color: #ffffff;
+  --contrast-color-rgb: 255, 255, 255;
+}
+
+/* Nav Menu Colors */
+
+:root {
+  --nav-color: #272828;
+  --nav-hover-color: #206e95;
+  --nav-dropdown-color: #272828;
+  --nav-dropdown-hover-color: #206e95;
+  --nav-dropdown-background-color: #ffffff;
+}
+
+/* Smooth scroll */
+:root {
+  scroll-behavior: smooth;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: rgba(var(--accent-color-rgb), 0.75);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/*--------------------------------------------------------------
+  # Global Header
+  --------------------------------------------------------------*/
+.header {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .logo {
+  display: flex; /* 使用 Flexbox 布局 */
+  align-items: center; /* 垂直居中 */
+}
+
+.header .logo img {
+  max-height: 36px;
+  margin-right: 8px;
+  margin-left: 15px;
+  transform: scale(2);
+}
+
+.header .logo h1 {
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-left: 30px;
+}
+
+.header .nav-getStartedButton,
+.header .nva-getStartedButton:focus {
+  position: absolute;
+  top: 20px;
+  right: 50px; /* 调整右边距离 */
+  width: auto; /* 或者根据您的设计调整宽度 */
+  z-index: 1000;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 25px;
+  margin: 0 0 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.header .nav-getStartedButton:hover,
+.header .nav-getStartedButton:focus:hover {
+  color: var(--contrast-color);
+  background: rgba(var(--accent-color-rgb), 0.85);
+}
+
+@media (max-width: 1200px) {
+  .header .logo {
+    order: 1;
+  }
+
+  .header .nav-getStartedButton {
+    order: 2;
+    margin: 0 15px 0 0;
+    padding: 6px 15px;
+  }
+
+  .header .navmenu {
+    order: 3;
+  }
+}
+
+.scrolled .header {
+  box-shadow: 0px 0 18px rgba(var(--default-color-rgb), 0.15);
+}
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+@media (min-width: 800px) {
+  .navmenu {
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    width: auto;
+    z-index: 1000;
+    background-color: #ffffff;
+  }
+
+  .navmenu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 12px;
+    font-size: 15px;
+    font-family: var(--nav-font);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    transition: 0.3s;
+  }
+
+  .navmenu a i,
+  .navmenu a:focus i {
+    font-size: 12px;
+    line-height: 0;
+    margin-left: 5px;
+    transition: 0.3s;
+  }
+
+  .navmenu li:last-child a {
+    padding-right: 0;
+  }
+
+  .navmenu li:hover > a,
+  .navmenu .active,
+  .navmenu .active:focus {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    margin: 0;
+    padding: 10px 0;
+    background: var(--nav-dropdown-background-color);
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    left: 14px;
+    top: 130%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    z-index: 99;
+    box-shadow: 0px 0px 30px rgba(var(--default-color-rgb), 0.15);
+  }
+
+  .navmenu .dropdown ul li {
+    min-width: 200px;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a i {
+    font-size: 12px;
+  }
+
+  .navmenu .dropdown ul a:hover,
+  .navmenu .dropdown ul .active:hover,
+  .navmenu .dropdown ul li:hover > a {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .dropdown:hover > ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover > ul {
+    opacity: 1;
+    top: 0;
+    left: -100%;
+    visibility: visible;
+  }
+}
+
+.navmenu .nav-getStartedButton {
+  margin-left: auto; /* 將按鈕置於導覽菜單的最右側 */
+}
+
+.navmenu .nav-getStartedButton a {
+  /* 新增 */
+  color: var(--nav-color);
+  padding: 18px 12px;
+  font-size: 15px;
+  font-family: var(--nav-font);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navmenu .nav-getStartedButton a:hover {
+  /* 新增 */
+  color: var(--nav-hover-color);
+}
+
+.navmenu .dd-box-shadow {
+  box-shadow: 0px 0px 30px rgba(var(--default-color-rgb), 0.15);
+}
+
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+  --default-color: #ffffff;
+  --default-color-rgb: 255, 255, 255;
+  --background-color: #000000;
+  --background-color-rgb: 0, 0, 0;
+  --heading-color: #ffffff;
+  width: 100%;
+  min-height: 80vh;
+  position: relative;
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--default-color);
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/*半透明黑色覆蓋在圖片上*/
+.hero:before {
+  content: "";
+  background: rgba(var(--background-color-rgb), 0.4);
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.hero p {
+  color: rgba(var(--default-color-rgb), 0.8);
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+.hero .getStartedButton {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 35px 10px 35px;
+  border-radius: 50px;
+  transition: 0.4s;
+  margin-top: 30px;
+  border: 2px solid var(--default-color);
+  color: var(--default-color);
+}
+
+.hero .getStartedButton:hover {
+  background: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+
+/* Course Section */
+
+.courses.section {
+  position: relative;
+  padding: 50px; /* 调整上下左右的内边距 */
+}
+
+.courses.section p {
+  font-weight: 800;
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: 1px;
+  color: var(--heading-color);
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.container.section-title {
+  position: absolute;
+  top: 20px; /* 与顶部的距离 */
+  left: 40px; /* 与左侧的距离 */
+}
+
+.course.list {
+  display: flex;
+  justify-content: space-between; /* 两端对齐 */
+  align-items: center;
+  margin-top: 5px; /* 调整顶部间距 */
+}
+
+.course-entry {
+  margin: 65px; /* 调整条目之间的间距 */
+  position: relative; /* 使 ::after 伪元素相对于其定位 */
+}
+
+.course-entry img {
+  max-width: 200%;
+  height: auto;
+  max-height: 200px; /* 调整图片最大高度 */
+  border: 2px solid #c9c6c6d4;
+  margin-left: -30px;
+}
+
+.course-entry:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30px;
+  right: -38px;
+  bottom: 2.5px;
+  transition: 0.2s;
+  border: 2px solid var(--accent-color); /* 蓝色外边框 */
+  box-sizing: border-box;
+}
+
+.courses.section .getStartedButton {
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: block;
+  width: 160px;
+  margin: -20px auto 0;
+  padding: 8px 35px 10px 35px;
+  border-radius: 50px;
+  transition: 0.2s;
+  border: 2px solid var(--default-color);
+  color: var(--default-color);
+  text-align: center;
+}
+
+.courses.section .getStartedButton:hover {
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+/*--------------------------------------------------------------
+# Global Footer
+--------------------------------------------------------------*/
+/* Footer 样式 */
+.footer {
+  background-color: #f8f9fa;
+  color: var(--default-color);
+  padding: 50px 100px;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.footer-about {
+  flex: 1;
+}
+
+.footer-about .logo {
+  text-decoration: none;
+  color: var(--default-color);
+  display: inline-block;
+}
+
+.footer-slogan {
+  margin-top: 20px;
+}
+
+.footer-links {
+  flex: 1;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li:last-child {
+  margin-bottom: 0;
+}
+
+.footer-links a {
+  color: var(--default-color);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent-color);
+}
+
+.subscription {
+  flex: 1;
+}
+
+.subscription h4,
+.subscription p {
+  text-align: left;
+}
+
+.subscription-form {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px;
+}
+
+.subscription-form input[type="email"] {
+  height: 15px;
+  width: 200px;
+  padding: 10px;
+  margin-right: 0px;
+}
+
+.subscription-form input[type="submit"] {
+  height: 39px;
+  background-color: var(--default-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 0px;
+}
+
+.subscription-form input[type="submit"]:hover {
+  background-color: var(--accent-color);
+}
+
+.footer-about span,
+.footer-links h4,
+.subscription h4 {
+  margin: 0;
+}
+
+.loading,
+.error-message,
+.sent-message {
+  display: none;
+}
+
+.copyright {
+  font-weight: 300;
+  background-color: #dfdede;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  color: #737272;
+}
+
+.credits {
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.credits a {
+  font-weight: 300;
+  text-decoration: none;
+  color: #737272;
+  font-weight: bold;
+}
