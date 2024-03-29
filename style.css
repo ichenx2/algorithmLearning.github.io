@@ -104,8 +104,8 @@ h6 {
 .header .nva-getStartedButton:focus {
   position: absolute;
   top: 20px;
-  right: 50px; /* 调整右边距离 */
-  width: auto; /* 或者根据您的设计调整宽度 */
+  right: 50px; 
+  width: auto; 
   z-index: 1000;
   color: var(--contrast-color);
   background: var(--accent-color);
@@ -376,7 +376,7 @@ h6 {
 
 .courses.section {
   position: relative;
-  padding: 50px; /* 调整上下左右的内边距 */
+  padding: 50px; 
 }
 
 .courses.section p {
@@ -391,26 +391,26 @@ h6 {
 
 .container.section-title {
   position: absolute;
-  top: 20px; /* 与顶部的距离 */
-  left: 40px; /* 与左侧的距离 */
+  top: 20px; 
+  left: 40px; 
 }
 
 .course.list {
   display: flex;
-  justify-content: space-between; /* 两端对齐 */
+  justify-content: space-between; 
   align-items: center;
-  margin-top: 5px; /* 调整顶部间距 */
+  margin-top: 5px; 
 }
 
 .course-entry {
-  margin: 65px; /* 调整条目之间的间距 */
-  position: relative; /* 使 ::after 伪元素相对于其定位 */
+  margin: 65px; 
+  position: relative; 
 }
 
 .course-entry img {
   max-width: 200%;
   height: auto;
-  max-height: 200px; /* 调整图片最大高度 */
+  max-height: 200px; 
   border: 2px solid #c9c6c6d4;
   margin-left: -30px;
 }
@@ -423,7 +423,7 @@ h6 {
   right: -38px;
   bottom: 2.5px;
   transition: 0.2s;
-  border: 2px solid var(--accent-color); /* 蓝色外边框 */
+  border: 2px solid var(--accent-color); 
   box-sizing: border-box;
 }
 
@@ -560,7 +560,7 @@ h6 {
 
 .copyright {
   font-weight: 300;
-  background-color: #dfdede;
+  background-color: #f1f0f0;
   text-align: center;
   margin-top: 30px;
   padding: 20px;
